@@ -1865,7 +1865,7 @@ It can also be a remote path for a remote directory import, but it will have bee
 const QQmlTypeLoader::QmldirContent *QQmlTypeLoader::qmldirContent(const QString &filePathIn)
 {
     QUrl url(filePathIn); //May already contain http scheme
-    if (url.scheme() == QLatin1String("http") || url.scheme() == QLatin1String("https"))
+    if (url.scheme() == QLatin1String("http") || url.scheme() == QLatin1String("https") || url.scheme() == QLatin1String("resource"))
         return *(m_importQmlDirCache.value(filePathIn)); //Can't load the remote here, but should be cached
     else
         url = QUrl::fromLocalFile(filePathIn);
